@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
+#include "stack.h"
 
 int main() {
     Stack s;
     std::string line;
+    /**
     while (true) {
         std::cout << "> ";
         std::getline(std::cin, line);
@@ -22,5 +24,7 @@ int main() {
         } else {
             std::cout << "Commands: push <n>, pop, top, exit\n";
         }
+    
     }
+    */
 }

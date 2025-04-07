@@ -5,6 +5,7 @@ class Stack {
         // Creates an empty stack with capacity 4
         Stack();
         
+        /** this has to be worked on  
         // Creates a copy of your stack
         Stack(const Stack& o);
         
@@ -32,4 +33,6 @@ class Stack {
         int* buffer;
         int capacity;
         int size;
-}
+    
+    **/  
+}; 
