@@ -2,8 +2,8 @@
 
 namespace stack {
 
-    Stack() {
-        return new[4]
+    Stack::Stack() {
+        new Stack[4];
     }
 }
 
