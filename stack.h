@@ -13,15 +13,19 @@ class Stack {
         // Assignment operator
         Stack& operator=(const Stack& o);
 
-         /** this has to be worked on
+         
         
         // Destructor
         ~Stack();
-        
+
+              
         // We'll ignore move constructor and move assignment.
-        
+                  
+       
         // Adds a new value to the stack
         void push(int value);
+
+        /** this has to be worked on
         
         // Checks the value at the top of the stack
         int top();

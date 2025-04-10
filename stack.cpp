@@ -11,15 +11,30 @@ Stack::Stack(const Stack& o){
     capacity = o.capacity; 
     size = o.size; 
     buffer = new int[capacity];
-    for (size_t i {}; i < size; i++) {
+    for (int i {}; i < size; i++) {
         buffer[i] = o.buffer[i];  
      }  
 }
 
 
-Stack& operator=(const Stack& o) {
-
+Stack& Stack::operator =(const Stack& o) {
+    capacity = o.capacity;   
+    size = o.size;
+    delete[] buffer;  
+    buffer = new int[capacity];
+    for (int i {}; i < size; i++) {
+        buffer[i] = o.buffer[i];  
+    }
+    
+    return *this; 
 }
+
+Stack::~Stack(){
+    delete[] buffer;  
+}
+
+
+
 
 
 
