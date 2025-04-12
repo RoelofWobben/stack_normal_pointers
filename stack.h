@@ -25,22 +25,21 @@ class Stack {
         // Adds a new value to the stack
         void push(int value);
 
-        /** this has to be worked on
+       
         
         // Checks the value at the top of the stack
         int top();
-        
+
         // Removes the value at the top of the stack (returning it)
         int pop();
         
         // Returns the number of elements in the stack
         int size();
-    **/ 
-
+    
     private: 
         int* buffer;
         int capacity;
-        int size;
+        int number_of_items;
     
      
 }; 
