@@ -17,7 +17,6 @@ int main() {
             s.push(val);
         } else if (line == "print") {
             Stack copy = s;
-            std::cout << copy.size();
             while (copy.size() > 0) {
                 std::cout << copy.pop() << " ";
             }
