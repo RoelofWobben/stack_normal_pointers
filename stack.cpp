@@ -1,5 +1,6 @@
 #include "stack.h"
 #include <memory>
+#include <iostream>
 
 Stack::Stack() {
     capacity = 4;
@@ -35,8 +36,8 @@ Stack::~Stack(){
 
 void Stack::push(int value){
     if (number_of_items <= capacity) {
-        ++number_of_items; 
         buffer[number_of_items] = value;
+        ++number_of_items; 
     } else {
         capacity = capacity * 2 ; 
         int* new_buffer = new int[capacity];
@@ -45,17 +46,27 @@ void Stack::push(int value){
         }; 
         delete[] buffer;
         buffer = new_buffer;
-        buffer[number_of_items] = value; 
+        buffer[number_of_items] = value;
+        ++number_of_items;  
     }
 }
 
 int Stack::top()  {
+    if (number_of_items <= 0) {
+        std::cout << "Cannot read from a empty stack";
+        return -1 ;  
+    }
     return buffer[number_of_items -1]; 
 }
 
 
 int Stack::pop() {
     --number_of_items;
+    if (number_of_items <= 0) {
+        number_of_items = 0; 
+        std::cout << "Cannot read from a empty stack";
+        return -1 ;  
+    }
     return buffer[number_of_items];
 }
 
