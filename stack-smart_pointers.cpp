@@ -50,12 +50,13 @@ void Stack::push(int value) {
         for (int i = 0; i < number_of_items; ++i) {
             new_buffer[i] = buffer[i];
         }
+
         buffer = std::move(new_buffer); 
+        capacity = new_capacity;
+
         buffer[number_of_items++] = value;
-        ++number_of_items;
     }
 }
-
 int Stack::top()  {
     if (number_of_items <= 0) {
         std::cout << "Cannot read from a empty stack";
