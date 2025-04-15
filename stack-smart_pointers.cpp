@@ -1,5 +1,6 @@
-#include "stack.h"
+#include "stack-smart_pointers.h"
 #include <iostream>
+#include <memory>
 
 Stack::Stack() {
     capacity = 4;
@@ -18,17 +19,24 @@ Stack::Stack(const Stack& o)
     
 }
 
-
-Stack& Stack::operator=(const Stack& o) {
-   
+Stack::Stack(Stack&& o) 
+{
+    buffer = std::move(o.buffer);
     capacity = o.capacity;
     number_of_items = o.number_of_items;
+    o.capacity = 0;
+    o.number_of_items = 0;
+}
 
-    std::unique_ptr<int[]> new_buffer = std::make_unique<int[]>(capacity);
-    for (int i = 0; i < number_of_items; ++i) {
-        new_buffer[i] = o.buffer[i];
+Stack& Stack::operator=(Stack&& o)  {
+    if (this != &o) {
+        buffer = std::move(o.buffer);
+        capacity = o.capacity;
+        number_of_items = o.number_of_items;
+
+        o.capacity = 0;
+        o.number_of_items = 0;
     }
-
     return *this;
 }
 
@@ -42,13 +50,14 @@ void Stack::push(int value) {
         for (int i = 0; i < number_of_items; ++i) {
             new_buffer[i] = buffer[i];
         }
-
+        buffer = std::move(new_buffer); 
         buffer[number_of_items++] = value;
+        ++number_of_items;
     }
 }
 
 int Stack::top()  {
-    if (number_of_items < 0) {
+    if (number_of_items <= 0) {
         std::cout << "Cannot read from a empty stack";
         return -1 ;  
     }

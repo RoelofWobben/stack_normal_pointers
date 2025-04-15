@@ -13,13 +13,14 @@ class Stack {
             
          
         // Assignment operator
-        Stack& operator=(const Stack& o);
+        Stack& Stack::operator=(Stack&& o);
  
-        
    
 
               
         // We'll ignore move constructor and move assignment.
+
+        Stack(Stack&& o) ;  
                   
        
         // Adds a new value to the stack
