@@ -19,15 +19,6 @@ Stack::Stack(const Stack& o)
     
 }
 
-Stack::Stack(Stack&& o) 
-{
-    buffer = std::move(o.buffer);
-    capacity = o.capacity;
-    number_of_items = o.number_of_items;
-    o.capacity = 0;
-    o.number_of_items = 0;
-}
-
 Stack& Stack::operator=(Stack&& o)  {
     if (this != &o) {
         buffer = std::move(o.buffer);

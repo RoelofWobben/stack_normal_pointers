@@ -52,7 +52,7 @@ void Stack::push(int value){
 }
 
 int Stack::top()  {
-    if (number_of_items < 0) {
+    if (number_of_items <= 0) {
         std::cout << "Cannot read from a empty stack";
         return -1 ;  
     }
